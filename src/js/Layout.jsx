@@ -1,8 +1,9 @@
 import React from 'react';
 import Flux from "react-flux-dash";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./views/Home.jsx";
-import Product from "./views/Product.jsx";
+import Dashboard from "./views/Dashboard.jsx";
+import Groups from "./views/Groups.jsx";
+import Events from "./views/Events.jsx";
 
 export default class Layout extends Flux.View {
   render() {
@@ -11,9 +12,10 @@ export default class Layout extends Flux.View {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/home" component={Home} />
-              <Route exact path="/product/:id" component={Product} />
+              <Route exact path="/" component={Dashboard} />
+              <Route exact path="/dashboard" component={Dashboard} />
+              <Route exact path="/groups:id" component={Groups} />
+              <Route exact path="/events:id" component={Events} />
               <Route render={() => <h1>Not found!</h1>} />
             </Switch>
           </div>
