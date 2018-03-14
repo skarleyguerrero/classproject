@@ -71,27 +71,10 @@ export default class Events extends Flux.View {
                 {/*body of page */}
                 <div className="container-fluid">
                     <div className="row">
-                        {/*body left side*/}
-                        <div className="col-md-7">
-                            <div className="row">
-                                <div className="col-12">
-                                <img className="img-fluid eventPhoto" src="http://via.placeholder.com/500X300" alt="event image of..." />
-                                <h5 className="details"><strong>Details</strong></h5>
-                                <p className="bodyText">Snuggle up with cute kitties, hot lattes, and a book. We host this event twice a month for a place to socialize or maybe come out for alternative therapy.<br/><br/>There are a few rules to follow for this event:</p>
-                                <ul>
-                                    <li>You must purchase a beverage (e.g. coffee, tea, cocoa, etc)</li>
-                                    <li>Stay as long as you like but only 30 minutes with each cat</li>
-                                    <li>Be kind to cats and humans alike</li>
-                                    <li>No children under 12 years old. This event is an escape for most people who attend</li>
-                                    <li>Must wear headphones for phone calls and music</li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                         {/*body right side*/}
-                        <div className="col-md-5 order-first">
-                            <div className="card">
+                    
+                      {/*body right side...when using order you're saying MEDIUM and up will be second*/}
+                        <div className="col-md-5 order-md-2">
+                            <div className="card smallCard">
                                 <div className="card-body">
                                     <div className="row cardInfo">
                                         <div>
@@ -108,6 +91,27 @@ export default class Events extends Flux.View {
                                 
                             </div>
                         </div>
+                    
+                    
+                        {/*body left side*/}
+                        <div className="col-md-7 order-md-1">
+                            <div className="row">
+                                <div className="col-12">
+                                <img className="img-fluid eventPhoto" src="http://via.placeholder.com/500X300" alt="event image of..." />
+                                <h5 className="details"><strong>Details</strong></h5>
+                                <p className="bodyText">Snuggle up with cute kitties, hot lattes, and a book. We host this event twice a month for a place to socialize or maybe come out for alternative therapy.<br/><br/>There are a few rules to follow for this event:</p>
+                                <ul>
+                                    <li>You must purchase a beverage (e.g. coffee, tea, cocoa, etc)</li>
+                                    <li>Stay as long as you like but only 30 minutes with each cat</li>
+                                    <li>Be kind to cats and humans alike</li>
+                                    <li>No children under 12 years old. This event is an escape for most people who attend</li>
+                                    <li>Must wear headphones for phone calls and music</li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
                     </div>
                 </div>
                 

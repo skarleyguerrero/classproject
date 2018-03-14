@@ -24,8 +24,6 @@ export default class Dashboard extends Flux.View {
   }
     
     
-    
-    
     render(){
         // Render the Calendar
         var today = new Date();
@@ -33,13 +31,25 @@ export default class Dashboard extends Flux.View {
         
         let meetupEvents = this.state.events.map((events) =>
         
-        <div key={events.id} className="card">
-            <h3>{events.title}</h3>
-            <div>{events.image}</div>
-            <p>{events.day}</p>
-            <p>{events.time}</p>
-        </div>
-        );
+            <div key={events.id} className="card mb-5">
+                <div className="card-header">
+                    <h3>{events.day}</h3>
+                </div>
+                <div className="card-body">
+                    <div className="row">
+                        <div className="col-md-2">
+                            <h5>{events.time}</h5>
+                        </div>
+                        <div className="col-md-10">
+                            <h5 className="card-title">{events.title}</h5>
+                            <a href="#" className="btn btn-primary">See Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            );
+
         
         return(
             <div>
@@ -48,7 +58,7 @@ export default class Dashboard extends Flux.View {
               
             <div className="jumbotron jumbotron-fluid">
                 <div className="container text-center">
-                    <h1 className="display-4 jumboTitle">Let's Get Together Tonight</h1>
+                    <h1 className="display-4 jumboTitle">Let's Get Together</h1>
                     <p className="lead jumboSubTitle">a place to meet new friends and maintain current friendships</p>
                 </div>
             </div>
@@ -59,7 +69,7 @@ export default class Dashboard extends Flux.View {
                  {/* event 1 */}
                         <div className="row">
                             <div className="col-12">
-                                <div className="card">
+                                <div className="card mb-5">
                                     <div className="card-header">
                                         <h2>Tuesday, March 13</h2>
                                     </div>
@@ -83,7 +93,7 @@ export default class Dashboard extends Flux.View {
                      {/* event 2 */}
                         <div className="row">
                             <div className="col-12">
-                                <div className="card">
+                                <div className="card mb-5">
                                     <div className="card-header">
                                         <h2>Friday, March 30</h2>
                                     </div>
@@ -108,7 +118,7 @@ export default class Dashboard extends Flux.View {
                      {/* event 3 */}
                         <div className="row">
                             <div className="col-12">
-                                <div className="card">
+                                <div className="card mb-5">
                                     <div className="card-header">
                                         <h2>Sunday, April 1</h2>
                                     </div>
@@ -132,12 +142,7 @@ export default class Dashboard extends Flux.View {
                 
                         <div className="row">
                             <div className="col-12">
-                                <div className="card">
-                                    <div className="card-body">
                                     {meetupEvents}
-                                    </div>
-                                  
-                                </div>
                             </div>
                         </div>
                 
@@ -176,7 +181,6 @@ export default class Dashboard extends Flux.View {
                 	</div>
                 </footer>
             
-   
             </div>
 
             );
