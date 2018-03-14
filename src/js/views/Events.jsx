@@ -1,6 +1,7 @@
 import React from "react";
 import Flux from "react-flux-dash";
 import { Link } from "react-router-dom";
+import Navbar from '../component/Navbar.jsx';
 
 export default class Events extends Flux.View {
     
@@ -9,19 +10,7 @@ export default class Events extends Flux.View {
         return(
             <div>
                 {/*this is the nav and logo bar */}
-                   <nav className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm">
-                    <a className="navbar-brand" href="#">grouped</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item active">
-                                <Link className="nav-link nav-item" to="/"> Dashboard</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                   <Navbar />
                 
                         
                 {/*this is the jumbotron info bar */}
@@ -35,21 +24,21 @@ export default class Events extends Flux.View {
                                             <p className="eventDate">Tuesday, March 13, 2018</p>
                                             <h1 className="eventTitle"> Cats + Coffee All Day</h1>
                                             <div className="row">
-                                                <div>
+                                                <div className="col-md-2 text-center">
+                                            
                                                     <img src="//placehold.it/50" className="rounded-circle" />
                                                 </div>
-                                                <div className="authors">
+                                                <div className="col-md-10 pt-1">
                                                     <span className="text">Hosted by</span>
                                                     <span className="link"><Link to="/"> Mr. Whiskers</Link></span>
                                                     <p><span className="text">From</span>
-                                                    <span className="link"><Link to="/"> Pur-Town</Link></span></p>
+                                                    <span className="link"><Link to="/meetup"> Pur-Town</Link></span></p>
                                                 </div>        
-                                
-                                                 </div>  
-                                            </div>
+                                            </div>  
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
+                                
                             
                                 {/*right side */}
                                 <div className="col-md-4 jumboRight">
@@ -139,7 +128,7 @@ export default class Events extends Flux.View {
 		                    </div>
 	                   </div>
                     </footer>
-                
+                </div>
             </div>
 
             );

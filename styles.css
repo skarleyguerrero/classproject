@@ -3,7 +3,7 @@ body{
 }
 .navbar{
     padding: 1em 1em !important;
-    border-bottom: 1px solid #2e3e481f;
+    border-bottom: 1px solid #2e3e481;
 }
 
 .navbar-brand{
@@ -42,9 +42,9 @@ body{
     color: #708090;
 }
 
-.theHost{
-    padding: 0 0 0 30px !important;
-}
+/*.theHost{*/
+/*    padding: 0 0 0 30px !important;*/
+/*}*/
 
 /*.authors{*/
 /*    margin-left: .5em !important;*/

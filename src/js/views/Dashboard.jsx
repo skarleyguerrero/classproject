@@ -3,30 +3,49 @@ import Flux from "react-flux-dash";
 import { Link } from "react-router-dom";
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
+import Navbar from '../component/Navbar.jsx';
+import meetupStore from '../stores/MeetupStore.jsx';
 
 export default class Dashboard extends Flux.View {
+    
+    constructor(){
+        super();
+        this.state = {
+            events: meetupStore.getAllEvents()
+        };
+    }
+    
+    componentWillMount() {
+   meetupStore.on("change", () => {
+     this.setState({
+       events: meetupStore.getAll(),
+     });
+   });
+  }
+    
+    
+    
     
     render(){
         // Render the Calendar
         var today = new Date();
         var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
         
+        let meetupEvents = this.state.events.map((events) =>
+        
+        <div key={events.id} className="card">
+            <h3>{events.title}</h3>
+            <div>{events.image}</div>
+            <p>{events.day}</p>
+            <p>{events.time}</p>
+        </div>
+        );
+        
         return(
             <div>
-              {/*this is the nav and logo bar */}
-                <nav className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm">
-                    <a className="navbar-brand" href="#">grouped</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item active">
-                                <Link className="nav-link nav-item theDashboard" to="/"> Dashboard</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+            
+              <Navbar />
+              
             <div className="jumbotron jumbotron-fluid">
                 <div className="container text-center">
                     <h1 className="display-4 jumboTitle">Let's Get Together Tonight</h1>
@@ -36,9 +55,8 @@ export default class Dashboard extends Flux.View {
             
             <div className="container">
                 <div className="row">
-                
-                 {/* event 1 */}
                     <div className="col-md-8">
+                 {/* event 1 */}
                         <div className="row">
                             <div className="col-12">
                                 <div className="card">
@@ -60,10 +78,9 @@ export default class Dashboard extends Flux.View {
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                     
                      {/* event 2 */}
-                    <div className="col-md-8">
                         <div className="row">
                             <div className="col-12">
                                 <div className="card">
@@ -85,11 +102,10 @@ export default class Dashboard extends Flux.View {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                     
                     
                      {/* event 3 */}
-                    <div className="col-md-8">
                         <div className="row">
                             <div className="col-12">
                                 <div className="card">
@@ -111,8 +127,22 @@ export default class Dashboard extends Flux.View {
                                 </div>
                             </div>
                         </div>
+                   
+                   {/*test add events */}
+                
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card">
+                                    <div className="card-body">
+                                    {meetupEvents}
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                
+                   
                     </div>
-                    
                     {/* the calendar */}
                         <div className="col-md-4">
                             <InfiniteCalendar
@@ -123,26 +153,28 @@ export default class Dashboard extends Flux.View {
                                 minDate={lastWeek}
                             />
                         </div>
-                    </div>
-                </div>
+                  {/*divs belonging to the container */}
+                  </div>
+                  </div>
+                
+        
         
                 {/* the footer */}
                 <footer className="footer" id="footer">
 	                <div className="container">
 	                    <div className="row justify-content-between">
-			                <div className="col-6">
-				                <img className="img-fluid" src="http://placehold.it/50x50" alt="" />
-			                </div>
-                			<div className="col-6">
-                				<ul className="footer__links list-inline text-right">
-                					<li className="footer__link list-inline-item">Blog</li>
-                					<li className="footer__link list-inline-item">Contact Us</li>
-                				</ul>
-                			</div>
-			
-		                    </div>
-	                   </div>
-                    </footer>
+                            <div className="col-6">
+                                <img className="img-fluid" src="http://placehold.it/50x50" alt="" />
+                            </div>
+                            <div className="col-6">
+                                <ul className="footer__links list-inline text-right">
+                                <li className="footer__link list-inline-item">Blog</li>
+                                <li className="footer__link list-inline-item">Contact Us</li>
+                                </ul>
+                            </div>
+                		</div>
+                	</div>
+                </footer>
             
    
             </div>
