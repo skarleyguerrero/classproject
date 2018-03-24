@@ -6,7 +6,8 @@ export default class Navbar extends React.Component{
         return(
            
                 <nav className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm">
-                    <a className="navbar-brand" href="#">grouped</a>
+                    <span className="navbar-brand" href="#">
+                    <Link className="nav-link nav-item theLogo" to="/"> grouped</Link></span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>

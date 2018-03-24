@@ -3,9 +3,69 @@ import Flux from "react-flux-dash";
 import { Link } from "react-router-dom";
 import Navbar from '../component/Navbar.jsx';
 
+import meetupStore from '../stores/MeetupStore.jsx';
+import meetupActions from '../actions/MeetupActions.jsx';
 export default class Events extends Flux.View {
     
-  render(){
+    constructor(){
+        super();
+        
+        this.state = {};
+        //this.bindStore(sessionStore);
+    }
+    
+    componentWillMount(){
+        let tempEvent = meetupStore.getEvent(this.props.match.params.id);
+        this.setState(tempEvent
+        let nextMeetup = meetupStore.getMeetup(this.props.match.params.id);
+        this.setState(nextMeetup);
+    }
+    
+     handleStoreChanges(data){
+        let tempEvent = meetupStore.getEvent(this.props.match.params.id);
+        // let tempEvent = tempMeetup.events.find( (event) => { return event.id === parseInt(this.props.match.params.id) })
+        this.setState(tempEvent);
+    }
+    
+    render(){
+        
+       
+        // let rsvpButtons = "";
+        // if(this.state.events.rsvp === "yes"){
+        //     rsvpButtons =    
+        //         <div className="row rsvpBTN flex-nowrap">
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 yesBTN" disabled onClick={() => meetupActions.rsvpEventPositively(this.props.match.params.id)}>Yes</button>
+        //             </div>
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 noBTN">No</button>
+        //             </div>
+        //         </div>;
+            
+        // }else if(this.state.events.rsvp === "no"){
+        //     rsvpButtons = 
+        //         <div className="row rsvpBTN flex-nowrap">
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 yesBTN" onClick={() => meetupActions.rsvpEventPositively(this.props.match.params.id)}>Yes</button>
+        //             </div>
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 noBTN">No</button>
+        //             </div>
+        //         </div>
+        //     ;
+        // }else{
+        //     rsvpButtons = 
+        //         <div className="row rsvpBTN flex-nowrap">
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 yesBTN" onClick={() => meetupActions.rsvpEventPositively(this.props.match.params.id)}>Yes</button>
+        //             </div>
+        //             <div className="col-md-5">
+        //                 <button type="button" className="btn btn-primary w-100 noBTN">No</button>
+        //             </div>
+        //         </div>
+        //     ;
+        // }
+       
        
         return(
             <div>
@@ -21,18 +81,18 @@ export default class Events extends Flux.View {
                                 <div className="col-md-8 jumboLeft">
                                     <div className="row">
                                         <div className="col-12">
-                                            <p className="eventDate">Tuesday, March 13, 2018</p>
-                                            <h1 className="eventTitle"> Cats + Coffee All Day</h1>
+                                            <p className="eventDate">{this.state.day}</p>
+                                            <h1 className="eventTitle">{this.state.title}</h1>
                                             <div className="row">
                                                 <div className="col-md-2 text-center">
                                             
                                                     <img src="//placehold.it/50" className="rounded-circle" />
                                                 </div>
                                                 <div className="col-md-10 pt-1">
-                                                    <span className="text">Hosted by</span>
-                                                    <span className="link"><Link to="/"> Mr. Whiskers</Link></span>
+                                                    <span className="textBy">By</span>
+                                                    <span className="link authorTitle"> Name</span>
                                                     <p><span className="text">From</span>
-                                                    <span className="link"><Link to="/meetup"> Pur-Town</Link></span></p>
+                                                    <span className="link meetupTitle">{this.state.meetups.title}</span></p>
                                                 </div>        
                                             </div>  
                                         </div>
@@ -47,7 +107,7 @@ export default class Events extends Flux.View {
                                     </div>
                                     <div className="row rsvpBTN flex-nowrap">
                                         <div className="col-md-5">
-                                            <button type="button" className="btn btn-primary w-100 yesBTN">Yes</button>
+                                            <button type="button" className="btn btn-primary w-100 yesBTN" onClick={()=>meetupActions.rsvpEventPositively(this.props.match.params.id)}> Yes</button>
                                         </div>
                                         <div className="col-md-5">
                                             <button type="button" className="btn btn-primary w-100 noBTN">No</button>
@@ -73,7 +133,7 @@ export default class Events extends Flux.View {
                     <div className="row">
                     
                       {/*body right side...when using order you're saying MEDIUM and up will be second*/}
-                        <div className="col-md-5 order-md-2">
+                        <div className="col-md-4 order-md-2">
                             <div className="card smallCard">
                                 <div className="card-body">
                                     <div className="row cardInfo">
@@ -94,7 +154,7 @@ export default class Events extends Flux.View {
                     
                     
                         {/*body left side*/}
-                        <div className="col-md-7 order-md-1">
+                        <div className="col-md-8 order-md-1">
                             <div className="row">
                                 <div className="col-12">
                                 <img className="img-fluid eventPhoto" src="http://via.placeholder.com/500X300" alt="event image of..." />
@@ -140,10 +200,3 @@ export default class Events extends Flux.View {
     
     
 }
-  
-  
-  
-  
-  
-            
-    

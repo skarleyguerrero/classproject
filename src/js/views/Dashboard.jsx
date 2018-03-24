@@ -16,41 +16,47 @@ export default class Dashboard extends Flux.View {
     }
     
     componentWillMount() {
-   meetupStore.on("change", () => {
-     this.setState({
-       events: meetupStore.getAll(),
+        meetupStore.on("change", () => {
+        this.setState({
+      events: meetupStore.getAll(),
      });
-   });
+  });
   }
-    
+    // componentWillMount(){
+        
+    // }
     
     render(){
         // Render the Calendar
         var today = new Date();
         var lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
         
-        let meetupEvents = this.state.events.map((events) =>
         
-            <div key={events.id} className="card mb-5">
+        var meetupEvents = this.state.events.map((event) => {
+            return(
+            <div key={event.id} className="card mb-5">
                 <div className="card-header">
-                    <h3>{events.day}</h3>
+                    <h3>{event.day}</h3>
                 </div>
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-2">
-                            <h5>{events.time}</h5>
+                            <h5>{event.time}</h5>
                         </div>
                         <div className="col-md-10">
-                            <h5 className="card-title">{events.title}</h5>
-                            <a href="#" className="btn btn-primary">See Details</a>
+                            <h5 className="card-title">{event.title}</h5>
+                            <h6>
+                            <Link className="card-text" to={"/meetup/" + event.meetup.id}>{event.meetup.title}</Link>
+                            </h6>
+                            <Link to={"/events/" + event.id} className="btn btn-primary">View</Link>
                         </div>
                     </div>
                 </div>
             </div>
 
-            );
-
-        
+           );
+        });
+    
         return(
             <div>
             
@@ -66,79 +72,8 @@ export default class Dashboard extends Flux.View {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
-                 {/* event 1 */}
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="card mb-5">
-                                    <div className="card-header">
-                                        <h2>Tuesday, March 13</h2>
-                                    </div>
-                                    <div className="card-body">
-                                        <div className="row">
-                                            <div className="col-md-2">
-                                                <h5>6:00PM</h5>
-                                            </div>
-                                            <div className="col-md-10">
-                                                <h5 className="card-title">Cats + Coffee</h5>
-                                                <p className="card-text">We supply the cats, the coffee, and the cozy chairs.</p>
-                                                <a href="#" className="btn btn-primary">See Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    
-                     {/* event 2 */}
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="card mb-5">
-                                    <div className="card-header">
-                                        <h2>Friday, March 30</h2>
-                                    </div>
-                                    <div className="card-body">
-                                        <div className="row">
-                                            <div className="col-md-2">
-                                                <h5>7:00PM</h5>
-                                            </div>
-                                            <div className="col-md-10">
-                                                <h5 className="card-title">Let's Relax Together</h5>
-                                                <p className="card-text">Bring a bottle of wine and meets us at Party Platter for a good time.</p>
-                                                <a href="#" className="btn btn-primary">See Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    
-                    
-                     {/* event 3 */}
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="card mb-5">
-                                    <div className="card-header">
-                                        <h2>Sunday, April 1</h2>
-                                    </div>
-                                    <div className="card-body">
-                                        <div className="row">
-                                            <div className="col-md-2">
-                                                <h5>10:00AM</h5>
-                                            </div>
-                                            <div className="col-md-10">
-                                                <h5 className="card-title">Hiking with Harry</h5>
-                                                <p className="card-text">Harry takes you through the woods and back again safely. Your kids are invited!</p>
-                                                <a href="#" className="btn btn-primary">See Details</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                   
-                   {/*test add events */}
+                 
+                   {/*adds events dynamically */}
                 
                         <div className="row">
                             <div className="col-12">

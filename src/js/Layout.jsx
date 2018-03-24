@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./views/Dashboard.jsx";
 import Groups from "./views/Groups.jsx";
 import Events from "./views/Events.jsx";
+import Meetup from "./views/Meetup.jsx";
+
 
 export default class Layout extends Flux.View {
   render() {
@@ -14,8 +16,10 @@ export default class Layout extends Flux.View {
             <Switch>
               <Route exact path="/" component={Dashboard} />
               <Route exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/groups:id" component={Groups} />
-              <Route exact path="/events:id" component={Events} />
+              <Route exact path="/groups/:id" component={Groups} />
+              <Route exact path="/events/:id" component={Events} />
+              <Route exact path="/meetup/:id" component={Meetup} />
+
               <Route render={() => <h1>Not found!</h1>} />
             </Switch>
           </div>
