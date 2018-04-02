@@ -1,5 +1,5 @@
 import React from "react";
-import Flux from "react-flux-dash";
+import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
 import Navbar from '../component/Navbar.jsx';
 
@@ -16,7 +16,7 @@ export default class Events extends Flux.View {
     
     componentWillMount(){
         let tempEvent = meetupStore.getEvent(this.props.match.params.id);
-        this.setState(tempEvent
+        //this.setState(tempEvent
         let nextMeetup = meetupStore.getMeetup(this.props.match.params.id);
         this.setState(nextMeetup);
     }

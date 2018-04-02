@@ -1,27 +1,33 @@
 import React from "react";
-import Flux from "react-flux-dash";
+import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
 import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import Navbar from '../component/Navbar.jsx';
-import meetupStore from '../stores/MeetupStore.jsx';
+import MeetupStore from '../stores/MeetupStore.jsx';
+import MeetupActions from '../actions/MeetupActions.jsx';
 
 export default class Dashboard extends Flux.View {
     
     constructor(){
         super();
         this.state = {
-            events: meetupStore.getAllEvents()
+            events: []
         };
+        MeetupActions.getMeetups();
+        this.bindStore(MeetupStore, () => {
+            let allMeetups = MeetupStore.getAllEvents();
+            this.setState({
+                events: allMeetups
+            });
+        })
     }
     
-    componentWillMount() {
-        meetupStore.on("change", () => {
+    handleStoreChanges() {
         this.setState({
-      events: meetupStore.getAll(),
-     });
-  });
-  }
+            events: MeetupStore.getAll(),
+        });
+    }
     // componentWillMount(){
         
     // }
@@ -104,7 +110,7 @@ export default class Dashboard extends Flux.View {
 	                <div className="container">
 	                    <div className="row justify-content-between">
                             <div className="col-6">
-                                <img className="img-fluid" src="http://placehold.it/50x50" alt="" />
+                                <img className="img-fluid" src="https://placehold.it/50x50" alt="" />
                             </div>
                             <div className="col-6">
                                 <ul className="footer__links list-inline text-right">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Flux from "react-flux-dash";
+import Flux from "@4geeksacademy/react-flux-dash";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./views/Dashboard.jsx";
 import Groups from "./views/Groups.jsx";
@@ -15,6 +15,7 @@ export default class Layout extends Flux.View {
           <div>
             <Switch>
               <Route exact path="/" component={Dashboard} />
+              <Route exact path="/index.html" component={Dashboard} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/groups/:id" component={Groups} />
               <Route exact path="/events/:id" component={Events} />

@@ -1,5 +1,5 @@
 //import react into the bundle
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom';
 
 //include jquery into the bundle and store its contents into the $ variable
