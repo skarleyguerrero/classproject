@@ -4,15 +4,21 @@ import { Link } from "react-router-dom";
 import Navbar from '../component/Navbar.jsx';
 
 import meetupStore from '../stores/MeetupStore.jsx';
-import meetupActions from '../actions/MeetupActions.jsx';
+import MeetupActions from '../actions/MeetupActions.jsx';
 export default class Events extends Flux.View {
     
     constructor(){
         super();
         
         this.state = {};
+        
         //this.bindStore(sessionStore);
-    }
+    
+    MeetupActions.getMeetups();
+    this.bindStore (meetupStore, () => {
+        let tempEvent = meetupStore.getEvent(this.props.match.params.id);
+        this.setState(tempEvent);
+    });}
     
     componentWillMount(){
         let tempEvent = meetupStore.getEvent(this.props.match.params.id);
@@ -31,6 +37,7 @@ export default class Events extends Flux.View {
         
        
         // let rsvpButtons = "";
+        if(typeof this.state.day==="undefined") return (<h2> event not found</h2>);
         // if(this.state.events.rsvp === "yes"){
         //     rsvpButtons =    
         //         <div className="row rsvpBTN flex-nowrap">
@@ -92,7 +99,8 @@ export default class Events extends Flux.View {
                                                     <span className="textBy">By</span>
                                                     <span className="link authorTitle"> Name</span>
                                                     <p><span className="text">From</span>
-                                                    <span className="link meetupTitle">{this.state.meetups.title}</span></p>
+                                                  {/*  <span className="link meetupTitle">{this.state.meetups.title}</span>*/}
+                                                  </p>
                                                 </div>        
                                             </div>  
                                         </div>

@@ -118,7 +118,7 @@ export default class Meetup extends Flux.View {
                                         </div>
                                     </div>
                                 
-                                <span className="card-subtitle text-muted">7777 SW 77 st, Miami FL 33177</span>
+                                <span className="card-subtitle text-muted">7777555 SW 77 st, Miami FL 33177</span>
                                
                                 
                                 </div>
