@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import Navbar from '../component/Navbar.jsx';
 import Footer from '../component/Footer.jsx'
 
-export default class Events extends Flux.View {
-    
-    constructor(){
+export default class Login extends Flux.View {
+constructor(){
         super();
     };
     
@@ -23,7 +22,7 @@ export default class Events extends Flux.View {
             
               <Navbar />
               
-              <h1>Events</h1>
+              <h1>Login</h1>
               
               <Footer/>
             </div>

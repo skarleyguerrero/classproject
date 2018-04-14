@@ -1,27 +1,35 @@
 import React from "react";
 import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
-//include images into your bundle
-import rigoImage from '../../img/rigo-baby.jpg';
+import Navbar from '../component/Navbar.jsx';
+import Header from '../component/Header.jsx';
+import Footer from '../component/Footer.jsx';
+import Store from '../stores/Store.jsx';
+import Actions from '../actions/Actions.jsx';
 
 export default class Home extends Flux.View {
-  render() {
-    return (
-        <div className="text-center mt-5">
-            <h1>Hello Rigo!</h1>
-            <p><img src={'./public/'+rigoImage} /></p>
-            <a href="#" className="btn btn-success">If you see this gree button... bootstrap is working</a>
-            <ul>
-                <li>
-                    <Link to="/product/1">Go to product 1</Link>
-                </li>
-                <li>
-                    <button onClick={() => this.props.history.push("/product/2")}>
-                    Go to product 2
-                    </button>
-                </li>
-            </ul>
-        </div>
-    );
-  }
+    
+    constructor(){
+        super();
+    };
+    
+    componentWillMount(){
+    }
+    
+    handleStoreChanges() {
+    }
+   
+    render(){
+       
+        return(
+            <div>
+            
+              <Navbar />
+              <Header />
+              <h1>HOME PAGE</h1>
+              
+              <Footer/>
+            </div>
+        );
+    }
 }

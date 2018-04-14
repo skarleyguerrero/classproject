@@ -11,10 +11,10 @@ import 'bootstrap';
 import '../styles/index.scss';
 
 //import your own components
-import Layout from './Layout.jsx';
+import Router from './Router.jsx';
 
 //render your react application
 ReactDOM.render(
-    <Layout />,
+    <Router />,
     document.querySelector('#app')
 );
