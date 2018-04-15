@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default class Navbar extends React.Component{
     render(){
         return(
-            <nav className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm">
+            <nav id="navbar" className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm navbar-fixed-top">
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active"><Link className="nav-link nav-item home" to="/"> Home</Link></li>

@@ -3,6 +3,8 @@ import Flux from "@4geeksacademy/react-flux-dash";
 import { Link } from "react-router-dom";
 import Navbar from '../component/Navbar.jsx';
 import Footer from '../component/Footer.jsx'
+import SimpleSlider from "../component/utility/Slider.jsx"
+
 
 export default class Events extends Flux.View {
     
@@ -20,12 +22,7 @@ export default class Events extends Flux.View {
        
         return(
             <div>
-            
-              <Navbar />
-              
-              <h1>Events</h1>
-              
-              <Footer/>
+                <SimpleSlider/>
             </div>
         );
     }
