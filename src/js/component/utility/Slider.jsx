@@ -1,35 +1,28 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import Slider from "react-slick";
+import ImageGallery from 'react-image-gallery';
+import React from "react";
 
+export default class SimpleSlider extends React.Component {
 
-export default class SimpleSlider extends Component {
   render() {
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
+
+    const images = [
+      {
+        original: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner21.jpg",
+        thumbnail: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner21.jpg"
+      },
+      {
+        original: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner22.jpg",
+        thumbnail: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner22.jpg"
+      },
+      {
+       original: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner23.jpg",
+        thumbnail: "http://napaatthevineyards.vertilinc.com/Portals/190/images/banner23.jpg"
+      }
+    ]
+
     return (
-      <div>
-        <h2> Single Item</h2>
-        <Slider {...settings}>
-          <div>
-            <img src="http://placekitten.com/g/400/200" />
-          </div>
-          <div>
-            <img src="http://placekitten.com/g/400/200" />
-          </div>
-          <div>
-            <img src="http://placekitten.com/g/400/200" />
-          </div>
-          <div>
-            <img src="http://placekitten.com/g/400/200" />
-          </div>
-        </Slider>
-      </div>
+      
+      <ImageGallery items={images} showThumbnails={false} showFullscreenButton={false} autoPlay={true} showPlayButton={false} slideDuration={550} slideInterval={4000}/>
     );
   }
 }

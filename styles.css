@@ -1,3 +1,7 @@
+@import "node_modules/react-image-gallery/styles/css/image-gallery.css";
+@import 'react-accessible-accordion/dist/fancy-example.css';
+@import './node_modules/react-accessible-accordion/dist/react-accessible-accordion.css';
+
 body{
     font-family: 'Quicksand', sans-serif !important;
 }
@@ -69,4 +73,10 @@ body{
 .footer {
 	background-color: #17cdef;
 	
+}
+
+.image-gallery-slides {
+        height: 500px;
+        width: 100%;
+       
 }
