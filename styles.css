@@ -14,7 +14,7 @@ body{
 .navbar-brand{
     font-family: 'Delius', sans-serif;
     font-size: 2em !important;
-    color: #28AFB0!important;
+    color: #89CFF0!important;
     /*color: #17cdef !important; dark jungle green*/
     /*#385F71 !important deep sea blue*/
     /*#28AFB0!important light sea green*/
@@ -70,8 +70,9 @@ body{
     margin-top: 1em;
 }
 
-.footer {
-	background-color: #17cdef;
+#footer {
+	background-color: #e2e1e0 !important;
+	padding:30px;
 	
 }
 
@@ -79,4 +80,8 @@ body{
         height: 500px;
         width: 100%;
        
+}
+#headerLogIn {
+    display: inline;
+    margin-right: 15px;
 }

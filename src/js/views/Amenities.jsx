@@ -23,7 +23,7 @@ export default class Amenities extends Flux.View {
         return(
             <div>
             
-              <Navbar />
+              <Navbar active="amenities" />
               
               <h1>Amenities</h1>
               

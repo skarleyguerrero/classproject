@@ -22,7 +22,7 @@ export default class SimpleSlider extends React.Component {
 
     return (
       
-      <ImageGallery items={images} showThumbnails={false} showFullscreenButton={false} autoPlay={true} showPlayButton={false} slideDuration={550} slideInterval={4000}/>
+      <ImageGallery items={images} showThumbnails={true} showFullscreenButton={false} autoPlay={true} showPlayButton={false} slideDuration={550} slideInterval={4000}/>
     );
   }
 }

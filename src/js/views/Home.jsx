@@ -30,7 +30,7 @@ export default class Home extends Flux.View {
         return(
             
             <div>
-                <Navbar />
+                <Navbar active="home" />
                 <Header />
                 <div id="main">
                     <div id="actionCards">
@@ -86,11 +86,43 @@ export default class Home extends Flux.View {
                     </div>
                     <div id="questionsAnswers">
                         <h1>Questions And Answers</h1>
-                        
+                        <div className="accordion" id="accordion">
+                            <div className="card">
+                                <a data-toggle="collapse" data-target="#collapseOne">
+                                    <div className="card-header" id="headingOne">
+                                        <h5 className="mb-0">
+                                            <a>Collapsible Group Item #1</a>
+                                        </h5>
+                                    </div>
+                                </a>
+                    
+                                <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div className="card-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                    
+                             <div className="card">
+                                <a data-toggle="collapse" data-target="#collapseTwo">
+                                    <div className="card-header" id="headingTwo">
+                                        <h5 className="mb-0">
+                                            <a>Collapsible Group Item #2</a>
+                                        </h5>
+                                    </div>
+                                </a>
+                            <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                   
                     </div>
                 </div>
-                <Footer/>
             </div>
-        );
-    }
+        <Footer/>
+    </div>
+    );
+}
 }

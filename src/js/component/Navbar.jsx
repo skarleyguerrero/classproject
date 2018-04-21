@@ -1,18 +1,33 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import FontAwesome from 'react-fontawesome';
 
 export default class Navbar extends React.Component{
+    isActive(value){
+    return 'nav-link '+((value===this.props.active) ?'active':'');
+    }
     render(){
         return(
-            <nav id="navbar" className="navbar navbar-expand-lg navbar-light justify-content-between navbar-expand-sm navbar-fixed-top">
-                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <li className="nav-item active"><Link className="nav-link nav-item home" to="/"> Home</Link></li>
-                        <li className="nav-item active"><Link className="nav-link nav-item amenities" to="/Amenities"> Amenities</Link></li>
-                        <li className="nav-item active"><Link className="nav-link nav-item events" to="/events"> Events</Link></li>
-                        <li className="nav-item active"><Link className="nav-link nav-item contact" to="/contact"> Contact</Link></li>
-                        <li className="nav-item active"><Link className="nav-link nav-item login" to="/login"> Login</Link></li>
+            <nav id="navbar" className="navbar navbar-expand-lg navbar-light sticky-top d-flex justify-content-between">
+                <div>
+                    <ul className="nav nav-pills">
+                        <li className="nav-item">
+                            <a className={this.isActive("home")} href="/home" >home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={this.isActive("amenities")} href="/amenities">amenities</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={this.isActive("events")} href="/events">Events</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={this.isActive("contact")} href="/contact">Contact</a>
+                        </li>
                     </ul>
+                </div>
+                <div>
+                    <p id="headerLogIn" >User Log In</p>
+                    <FontAwesome name="lock" size="2x"/>
                 </div>
             </nav>
         );
